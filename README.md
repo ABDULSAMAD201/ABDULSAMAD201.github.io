@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DataNova Labz — Portfolio Website
 
-## Getting Started
+Modern, professional portfolio website for **DataNova Labz**, a software and
+data engineering team. Built with Next.js (App Router), TypeScript, and
+Tailwind CSS v4. Single-page layout with dark tech theme.
 
-First, run the development server:
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Production build:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+  app/               App Router entry (layout, page, global styles)
+  components/        One component per page section
+  data/              Content files — edit these to change site content
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Where to update content
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| What                       | File                                   |
+| -------------------------- | -------------------------------------- |
+| Project details            | `src/data/projects.ts`                 |
+| Dashboard gallery          | `src/data/dashboards.ts`               |
+| Services / Why us / Tech   | `src/components/Services.tsx`, etc.    |
+| Email & LinkedIn links     | `src/components/Contact.tsx`, `Footer.tsx` |
 
-## Deploy on Vercel
+### Adding a new project
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Append an entry to the `projects` array in `src/data/projects.ts` — no
+component changes are needed. The detail view follows a fixed structure
+(Project Overview → The Problem → What We Built → The Outcome → Technologies
+Used → Architecture). Each project supports:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `title`, `category`, `overview`
+- `problem` (string)
+- `solution` (blocks with optional `heading`, `text`, `items`)
+- `outcome` (array of strings)
+- `tech` (array of tags)
+- `flow` (nodes for the architecture diagram visual)
+- `callout` (optional highlighted note)
+- `image` (optional screenshot path)
+
+### Adding real dashboard screenshots
+
+In `src/data/dashboards.ts`, set the `image` field to the image path (e.g.
+`/dashboards/finance-overview.png`, placed in `public/`) and update `name`.
+Cards without an `image` show a placeholder chart visual.
+
+## Content notes
+
+- The contact form is a placeholder UI — connect it to an email service or
+  CRM backend in `src/components/ContactForm.tsx`.
+- `hello@datanovalabz.com` and the LinkedIn URL in `Contact.tsx` / `Footer.tsx`
+  are placeholders — replace them with the real addresses.

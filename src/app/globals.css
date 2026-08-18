@@ -1,26 +1,205 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-space-grotesk), var(--font-inter), ui-sans-serif, sans-serif;
+
+  --color-night: #060a13;
+  --color-surface: #0a1120;
+  --color-card: #0d1626;
+  --color-line: #1c2942;
+  --color-frost: #e8eef7;
+  --color-muted: #98a6bd;
+  --color-faint: #7c8aa3;
+  --color-accent: #38bdf8;
+  --color-accent-strong: #0ea5e9;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-night);
+  color: var(--color-frost);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Prevent any element from causing horizontal scroll */
+img, video, svg, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+section[id] {
+  scroll-margin-top: 4rem;
+}
+
+@media (min-width: 640px) {
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.28);
+  color: #ffffff;
+}
+
+/* Ambient technical grid backdrop */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.glow-hero {
+  background: radial-gradient(
+    760px circle at 50% -12%,
+    rgba(56, 189, 248, 0.1),
+    transparent 66%
+  );
+}
+
+/* Smaller glow on mobile so it doesn't dominate the viewport */
+@media (max-width: 640px) {
+  .glow-hero {
+    background: radial-gradient(
+      320px circle at 50% -12%,
+      rgba(56, 189, 248, 0.08),
+      transparent 66%
+    );
+  }
+}
+
+/* Scroll-reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Flowing data dots along pipeline connectors */
+.flow-dot {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background: var(--color-accent);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.9);
+}
+.connector-x .flow-dot {
+  top: 50%;
+  transform: translateY(-50%);
+  animation: flow-x 2.6s linear infinite;
+}
+.connector-y .flow-dot {
+  left: 50%;
+  transform: translateX(-50%);
+  animation: flow-y 2.6s linear infinite;
+}
+@keyframes flow-x {
+  0% {
+    left: -6px;
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    left: calc(100% + 6px);
+    opacity: 0;
+  }
+}
+@keyframes flow-y {
+  0% {
+    top: -6px;
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    top: calc(100% + 6px);
+    opacity: 0;
+  }
+}
+
+/* Soft pulsing glow for icons */
+.pulse {
+  animation: pulse-soft 3.2s ease-in-out infinite;
+}
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Mobile menu slide-in animation */
+.mobile-menu-enter {
+  animation: slide-down 0.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Bottom-sheet drag handle visual (for modal on mobile) */
+.bottom-sheet-handle {
+  width: 36px;
+  height: 4px;
+  border-radius: 9999px;
+  background: var(--color-line);
+  margin: 0 auto 0.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .flow-dot {
+    animation: none;
+    opacity: 0;
+  }
+  .pulse {
+    animation: none;
+  }
+  .mobile-menu-enter {
+    animation: none;
+  }
 }

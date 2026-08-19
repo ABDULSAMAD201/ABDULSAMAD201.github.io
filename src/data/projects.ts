@@ -62,8 +62,10 @@ export const projects: Project[] = [
       },
     ],
     outcome: [
-      "The automated pipeline supports approximately 8,000 airports and refreshes data every 2–3 minutes, replacing manual data processing.",
-      "The solution is currently being used by pilots.",
+      "Replaced manual weather data processing with an automated ETL pipeline.",
+      "Supports weather data coverage across approximately 8,000 airports.",
+      "Automatically refreshes data every 2–3 minutes.",
+      "Currently in use by pilots for viewing weather conditions along flight routes.",
     ],
     tech: ["Python"],
     flow: [
@@ -73,8 +75,6 @@ export const projects: Project[] = [
       "Flight Weather System",
       "Pilots",
     ],
-    callout:
-      "In production use by pilots today — supporting approximately 8,000 airports with a 2–3 minute automated refresh.",
   },
   {
     id: "notam-caching-system",
@@ -104,8 +104,6 @@ export const projects: Project[] = [
       "Google Cloud Storage",
       "Application",
     ],
-    callout:
-      "Client and company details remain confidential. No specific cost or storage reduction percentage is claimed — no measured metric is available.",
   },
   {
     id: "multi-source-etl-pipeline",
@@ -180,6 +178,8 @@ export const projects: Project[] = [
     ],
     outcome: [
       "A practical AI-powered tool that makes SQL query creation and optimization easier for users and developers.",
+      "Demonstrated through the FastAPI Swagger/API interface — does not currently have a dedicated frontend UI.",
+      "Operates as a query generation and optimization assistant without requiring access to a specific production database.",
     ],
     tech: ["Python", "FastAPI", "LangChain", "Ollama", "PostgreSQL", "SQL"],
     flow: [
@@ -189,8 +189,6 @@ export const projects: Project[] = [
       "SQL Generation / Error Detection / Optimization",
       "Improved SQL Query",
     ],
-    callout:
-      "Currently demonstrated through the FastAPI API/Swagger interface — the assistant does not execute queries against any production database.",
   },
   {
     id: "medical-rag-chatbot",

@@ -4,7 +4,7 @@ import Reveal from "./Reveal";
 import ContactForm from "./ContactForm";
 
 // TODO: replace these placeholders with the real email and LinkedIn URL.
-const EMAIL = "hello@datanovalabz.com";
+const EMAIL = "datanovalabz@gmail.com";
 const LINKEDIN_URL = "https://www.linkedin.com/company/datanova-labz";
 
 export default function Contact() {

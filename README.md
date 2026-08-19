@@ -64,5 +64,5 @@ Cards without an `image` show a placeholder chart visual.
 
 - The contact form is a placeholder UI — connect it to an email service or
   CRM backend in `src/components/ContactForm.tsx`.
-- `hello@datanovalabz.com` and the LinkedIn URL in `Contact.tsx` / `Footer.tsx`
-  are placeholders — replace them with the real addresses.
+- `datanovalabz@gmail.com` and the LinkedIn URL in `Contact.tsx` / `Footer.tsx`
+  are the current contact details — update them if they change.

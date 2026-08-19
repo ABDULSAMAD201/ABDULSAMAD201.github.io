@@ -10,7 +10,7 @@ const FOOTER_LINKS = [
 ];
 
 // TODO: replace placeholders with the real email and LinkedIn URL.
-const EMAIL = "hello@datanovalabz.com";
+const EMAIL = "datanovalabz@gmail.com";
 const LINKEDIN_URL = "https://www.linkedin.com/company/datanova-labz";
 
 export default function Footer() {

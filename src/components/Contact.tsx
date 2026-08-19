@@ -1,11 +1,47 @@
-import { Mail } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { Mail, Copy, Check } from "lucide-react";
 import { LinkedInIcon } from "./icons";
 import Reveal from "./Reveal";
 import ContactForm from "./ContactForm";
 
-// TODO: replace these placeholders with the real email and LinkedIn URL.
 const EMAIL = "datanovalabz@gmail.com";
 const LINKEDIN_URL = "https://www.linkedin.com/company/datanova-labz";
+
+function CopyEmailButton() {
+  const [copied, setCopied] = useState(false);
+
+  function handleCopy(e: React.MouseEvent) {
+    e.preventDefault();
+    e.stopPropagation();
+    navigator.clipboard.writeText(EMAIL).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={handleCopy}
+      title="Copy email address"
+      className="ml-1.5 inline-flex shrink-0 items-center gap-1 rounded-md border border-line px-2 py-1 text-xs text-muted transition hover:border-accent/40 hover:text-accent"
+    >
+      {copied ? (
+        <>
+          <Check className="size-3" aria-hidden="true" />
+          Copied!
+        </>
+      ) : (
+        <>
+          <Copy className="size-3" aria-hidden="true" />
+          Copy
+        </>
+      )}
+    </button>
+  );
+}
 
 export default function Contact() {
   return (
@@ -39,8 +75,11 @@ export default function Contact() {
                     <Mail className="size-4.5 sm:size-5" aria-hidden="true" />
                   </span>
                   <span className="min-w-0">
-                    <span className="block text-sm font-semibold text-frost">
-                      Email us
+                    <span className="flex items-center">
+                      <span className="block text-sm font-semibold text-frost">
+                        Email us
+                      </span>
+                      <CopyEmailButton />
                     </span>
                     <span className="block truncate text-sm text-muted">
                       {EMAIL}

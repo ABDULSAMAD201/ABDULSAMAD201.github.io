@@ -5,11 +5,11 @@ const FOOTER_LINKS = [
   { label: "Home", href: "#home" },
   { label: "Services", href: "#services" },
   { label: "Projects", href: "#projects" },
+  { label: "Process", href: "#process" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
 
-// TODO: replace placeholders with the real email and LinkedIn URL.
 const EMAIL = "datanovalabz@gmail.com";
 const LINKEDIN_URL = "https://www.linkedin.com/company/datanova-labz";
 
@@ -24,7 +24,7 @@ export default function Footer() {
               DataNova<span className="text-accent"> Labz</span>
             </p>
             <p className="mt-2 text-sm leading-relaxed text-muted">
-              End-to-End Data &amp; Software Solutions
+              Turning data and manual processes into automated, intelligent systems.
             </p>
           </div>
 
@@ -44,7 +44,7 @@ export default function Footer() {
             </ul>
           </nav>
 
-          {/* Contact placeholders */}
+          {/* Contact */}
           <div className="flex items-center justify-center gap-3 sm:gap-4">
             <a
               href={`mailto:${EMAIL}`}

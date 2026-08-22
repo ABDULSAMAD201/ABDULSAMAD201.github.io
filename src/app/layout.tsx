@@ -15,9 +15,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "DataNova Labz — End-to-End Data & Software Solutions",
+  title: "DataNova Labz — Data Engineering, BI Dashboards & AI Automation",
   description:
-    "DataNova Labz builds end-to-end data and software solutions — data pipelines, Power BI dashboards, FastAPI backends, and AI-powered automation for startups, SaaS companies, and growing businesses.",
+    "We help growing businesses turn scattered data and repetitive workflows into automated dashboards, scalable software, and AI-powered solutions. Data pipelines, Power BI, backend development, and AI automation.",
 };
 
 export default function RootLayout({

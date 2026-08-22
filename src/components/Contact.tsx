@@ -53,17 +53,13 @@ export default function Contact() {
           {/* Left: copy + channels */}
           <Reveal>
             <div className="flex h-full flex-col">
-              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-                <span className="h-px w-6 bg-accent/60" aria-hidden="true" />
-                Contact
-              </span>
-              <h2 className="mt-4 font-display text-2xl font-bold tracking-tight text-frost sm:text-3xl md:text-4xl">
-                Have a Project in Mind?
-              </h2>
-              <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted sm:text-base">
+              <h3 className="font-display text-xl font-bold tracking-tight text-frost sm:text-2xl">
+                Let&apos;s Talk About Your Project
+              </h3>
+              <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted sm:text-base">
                 Whether you need a data pipeline, dashboard, backend system,
-                API, or AI-powered automation, let&apos;s discuss what
-                you&apos;re trying to build and how DataNova Labz can help.
+                API, or AI-powered automation — we&apos;re here to help you find
+                the right solution.
               </p>
 
               <div className="mt-8 space-y-3 sm:mt-9">

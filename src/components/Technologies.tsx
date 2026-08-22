@@ -8,6 +8,8 @@ import {
   Link2,
   Brain,
   Bot,
+  Cloud,
+  Workflow,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import Reveal from "./Reveal";
@@ -28,6 +30,9 @@ const TECHNOLOGIES: Tech[] = [
   { name: "LangChain", icon: Link2 },
   { name: "Ollama", icon: Brain },
   { name: "RAG & AI Agents", icon: Bot },
+  { name: "AWS", icon: Cloud },
+  { name: "ETL Pipelines", icon: Workflow },
+  { name: "DAX & Data Modeling", icon: BarChart3 },
 ];
 
 export default function Technologies() {
@@ -36,9 +41,9 @@ export default function Technologies() {
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 md:py-28 lg:px-8">
         <Reveal>
           <SectionHeading
-            eyebrow="Technology"
-            title="Our Core Technologies"
-            description="The tools and platforms we use to build pipelines, dashboards, backends, and AI-powered solutions."
+            eyebrow="Our Stack"
+            title="Technologies We Work With"
+            description="We choose the right tools for the job — here are the core technologies behind our solutions."
           />
         </Reveal>
 

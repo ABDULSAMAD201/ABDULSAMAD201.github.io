@@ -1,7 +1,15 @@
 "use client";
 
 import { useEffect } from "react";
-import { X, AlertTriangle, CheckCircle2, ImageIcon } from "lucide-react";
+import {
+  X,
+  AlertTriangle,
+  CheckCircle2,
+  ImageIcon,
+  AlertCircle,
+  Lightbulb,
+  TrendingUp,
+} from "lucide-react";
 import type { Project } from "@/data/projects";
 import FlowDiagram from "./FlowDiagram";
 
@@ -101,17 +109,27 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             </p>
           </div>
 
-          {/* The Problem */}
+          {/* The Challenge */}
           <div className="mt-6 sm:mt-7">
-            <h4 className={sectionLabel}>The Problem</h4>
+            <div className="flex items-center gap-2">
+              <AlertCircle className="size-4 text-orange-400/80" aria-hidden="true" />
+              <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-400/80">
+                The Challenge
+              </h4>
+            </div>
             <p className="mt-2.5 text-sm leading-relaxed text-frost/90">
               {project.problem}
             </p>
           </div>
 
-          {/* What We Built */}
+          {/* The Solution */}
           <div className="mt-6 sm:mt-7">
-            <h4 className={sectionLabel}>Solution</h4>
+            <div className="flex items-center gap-2">
+              <Lightbulb className="size-4 text-accent" aria-hidden="true" />
+              <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                Our Solution
+              </h4>
+            </div>
             {project.solution.map((block, i) => (
               <div key={i} className="mt-3">
                 {block.heading && (
@@ -165,17 +183,22 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             </div>
           )}
 
-          {/* The Outcome */}
+          {/* The Result */}
           <div className="mt-6 sm:mt-7">
-            <h4 className={sectionLabel}>The Outcome</h4>
+            <div className="flex items-center gap-2">
+              <TrendingUp className="size-4 text-emerald-400/80" aria-hidden="true" />
+              <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-400/80">
+                The Result
+              </h4>
+            </div>
             <ul className="mt-2.5 space-y-2">
               {project.outcome.map((line) => (
                 <li
                   key={line}
                   className="flex items-start gap-2 text-sm leading-relaxed text-frost/90 sm:gap-2.5"
                 >
-                  <span
-                    className="mt-2 size-1.5 shrink-0 rounded-full bg-accent"
+                  <CheckCircle2
+                    className="mt-0.5 size-4 shrink-0 text-emerald-400/80"
                     aria-hidden="true"
                   />
                   {line}

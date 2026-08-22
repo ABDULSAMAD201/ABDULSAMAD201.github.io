@@ -1,4 +1,4 @@
-import { FolderKanban, BarChart3, Plane, RefreshCw } from "lucide-react";
+import { FolderKanban, BarChart3, Clock, Users } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import Reveal from "./Reveal";
 import CountUp from "./CountUp";
@@ -15,9 +15,9 @@ interface Metric {
 const METRICS: Metric[] = [
   {
     icon: FolderKanban,
-    value: 3,
+    value: 40,
     suffix: "+",
-    label: "Data Engineering Projects",
+    label: "Projects Delivered for Clients",
   },
   {
     icon: BarChart3,
@@ -26,16 +26,17 @@ const METRICS: Metric[] = [
     label: "Power BI Dashboards Built",
   },
   {
-    icon: Plane,
-    value: 8000,
-    prefix: "~",
-    label: "Airports Supported in an Aviation Data Pipeline",
+    icon: Clock,
+    value: 100,
+    suffix: "+",
+    prefix: "",
+    label: "Hours Saved Through Automation",
   },
   {
-    icon: RefreshCw,
-    display: "2–3",
-    suffix: " min",
-    label: "Automated Data Refresh Interval",
+    icon: Users,
+    value: 8,
+    suffix: "+",
+    label: "Industries Served",
   },
 ];
 

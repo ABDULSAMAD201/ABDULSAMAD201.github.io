@@ -18,8 +18,8 @@ export default function Projects() {
         <Reveal>
           <SectionHeading
             eyebrow="Our Work"
-            title="Selected Projects"
-            description="A selection of data, software, automation, and analytics solutions built to solve practical problems."
+            title="Projects"
+            description="See how we've helped businesses solve data challenges, automate workflows, and build intelligent systems."
           />
         </Reveal>
 

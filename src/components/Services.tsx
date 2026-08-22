@@ -7,8 +7,7 @@ interface Service {
   icon: LucideIcon;
   title: string;
   description: string;
-  capabilities: string[];
-  note?: string;
+  outcomes: string[];
 }
 
 const SERVICES: Service[] = [
@@ -16,65 +15,48 @@ const SERVICES: Service[] = [
     icon: Database,
     title: "Data Engineering & ETL",
     description:
-      "Build reliable data pipelines that collect, transform, validate, and organize data from multiple sources.",
-    capabilities: [
-      "ETL and data pipelines",
-      "Data extraction",
-      "API integration",
-      "Data transformation",
-      "Data cleaning and validation",
-      "PostgreSQL data solutions",
-      "Scheduled workflows",
-      "Data automation",
+      "We connect, clean, and automate your data so your business can make decisions using reliable information.",
+    outcomes: [
+      "Automated data pipelines that replace manual exports",
+      "Clean, centralized data ready for reporting",
+      "Scheduled workflows that keep data fresh",
+      "Reliable data flow from multiple sources",
     ],
   },
   {
     icon: BarChart3,
-    title: "Dashboards & Business Intelligence",
+    title: "Power BI & Business Intelligence",
     description:
-      "Turn business data into clear, interactive insights that help teams monitor performance and make better decisions.",
-    capabilities: [
-      "Power BI dashboards",
-      "KPI reporting",
-      "Data modeling",
-      "Power Query transformations",
-      "DAX measures",
-      "Database and API connections",
-      "Automated refresh",
-      "Row-level security",
-      "Dashboard deployment and sharing",
+      "Turn scattered spreadsheets and business data into interactive dashboards and real-time insights.",
+    outcomes: [
+      "Interactive dashboards instead of static spreadsheets",
+      "Real-time visibility into business performance",
+      "KPIs and metrics at a glance",
+      "Better, faster decision-making across teams",
     ],
   },
   {
     icon: Server,
     title: "Backend & API Development",
     description:
-      "Build reliable backend systems, APIs, database solutions, and integrations for modern applications.",
-    capabilities: [
-      "FastAPI development",
-      "REST APIs",
-      "Backend services",
-      "PostgreSQL",
-      "SQL solutions",
-      "API integrations",
-      "Docker",
-      "Scalable software systems",
+      "Build scalable backend systems, APIs, and integrations that connect your tools and support your business growth.",
+    outcomes: [
+      "Custom APIs that connect your software systems",
+      "Scalable backends that grow with your business",
+      "Database solutions optimized for your needs",
+      "Integrations that eliminate manual data transfers",
     ],
-    note: "Backend project details will be expanded as additional projects are added.",
   },
   {
     icon: Bot,
     title: "AI Agents & Automation",
     description:
-      "Build AI-powered tools that help automate workflows, work with data, and make technical tasks easier.",
-    capabilities: [
-      "AI agents",
-      "RAG-based solutions",
-      "LangChain applications",
-      "AI workflow automation",
-      "SQL assistance",
-      "Intelligent data tools",
-      "LLM-powered applications",
+      "Automate repetitive workflows and build AI-powered systems that save time and reduce manual work.",
+    outcomes: [
+      "AI-powered tools that handle repetitive tasks",
+      "Workflow automation that saves hours every week",
+      "Intelligent systems that learn from your data",
+      "Custom AI solutions tailored to your business",
     ],
   },
 ];
@@ -85,40 +67,46 @@ export default function Services() {
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 md:py-28 lg:px-8">
         <Reveal>
           <SectionHeading
-            eyebrow="Services"
-            title="What We Build"
-            description="From data infrastructure to business applications and intelligent automation, we build solutions around the technical problems businesses need to solve."
+            eyebrow="What We Do"
+            title="Solutions That Drive Business Results"
+            description="We don't just build technology — we solve business problems. Here's how our services create real value for your company."
           />
         </Reveal>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-14 sm:gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-14 sm:gap-5 md:grid-cols-2">
           {SERVICES.map((service, i) => (
             <Reveal key={service.title} delay={i * 90} className="h-full">
-              <div className="group flex h-full flex-col rounded-2xl border border-line bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-[0_16px_40px_-16px_rgba(56,189,248,0.2)] sm:p-6">
-                <span className="grid size-10 place-items-center rounded-xl bg-accent/10 text-accent transition-colors group-hover:bg-accent/15 sm:size-11">
-                  <service.icon className="size-5" aria-hidden="true" />
-                </span>
-                <h3 className="mt-4 font-display text-lg font-bold tracking-tight text-frost sm:mt-5">
-                  {service.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted sm:mt-2.5">
-                  {service.description}
-                </p>
-                <div className="mt-4 flex flex-wrap gap-1.5 sm:mt-5">
-                  {service.capabilities.map((cap) => (
-                    <span
-                      key={cap}
-                      className="rounded-full border border-line bg-surface px-2.5 py-1 text-xs text-muted"
-                    >
-                      {cap}
-                    </span>
-                  ))}
+              <div className="group flex h-full flex-col rounded-2xl border border-line bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-[0_16px_40px_-16px_rgba(56,189,248,0.2)] sm:p-8">
+                <div className="flex items-start gap-4">
+                  <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-accent/10 text-accent transition-colors group-hover:bg-accent/15">
+                    <service.icon className="size-6" aria-hidden="true" />
+                  </span>
+                  <div>
+                    <h3 className="font-display text-xl font-bold tracking-tight text-frost">
+                      {service.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">
+                      {service.description}
+                    </p>
+                  </div>
                 </div>
-                {service.note && (
-                  <p className="mt-auto pt-4 text-xs italic leading-relaxed text-faint sm:pt-5">
-                    {service.note}
+
+                <div className="mt-6 border-t border-line/60 pt-5 sm:mt-7 sm:pt-6">
+                  <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-faint">
+                    Business Outcomes
                   </p>
-                )}
+                  <ul className="space-y-2.5">
+                    {service.outcomes.map((outcome) => (
+                      <li
+                        key={outcome}
+                        className="flex items-start gap-2.5 text-sm leading-relaxed text-frost/85"
+                      >
+                        <span className="mt-2 size-1.5 shrink-0 rounded-full bg-accent" />
+                        {outcome}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </Reveal>
           ))}

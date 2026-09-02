@@ -212,19 +212,6 @@ export const projects: Project[] = [
       {
         text: "We built a Retrieval-Augmented Generation system that allows users to upload PDFs and ask natural-language questions. Documents are processed, chunked, converted into semantic embeddings, stored in a FAISS vector index, and retrieved as context for LLM-generated answers.",
       },
-      {
-        heading: "Key capabilities",
-        items: [
-          "PDF ingestion and document chunking",
-          "Semantic embeddings",
-          "FAISS vector search",
-          "Context-grounded question answering",
-          "LLM-powered responses",
-          "Web interface",
-          "Containerized deployment",
-          "CI/CD pipeline",
-        ],
-      },
     ],
     outcome: [
       "Reduced the manual effort required to search through large document collections by providing direct, context-grounded answers.",
@@ -262,20 +249,6 @@ export const projects: Project[] = [
     solution: [
       {
         text: "We built a multi-agent AI system using LangChain/LangGraph that coordinates an LLM with external tools such as web search. The system is exposed through a FastAPI backend with a Streamlit interface.",
-      },
-      {
-        heading: "Key capabilities",
-        items: [
-          "Multi-agent orchestration",
-          "LangGraph-based workflow",
-          "External web search integration",
-          "Configurable model selection",
-          "FastAPI backend",
-          "Streamlit interface",
-          "Containerized deployment",
-          "Automated code quality checks",
-          "CI/CD pipeline",
-        ],
       },
     ],
     outcome: [

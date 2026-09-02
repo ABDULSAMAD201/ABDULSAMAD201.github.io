@@ -7,10 +7,12 @@ interface RevealProps {
   /** Delay in ms before the reveal transition starts */
   delay?: number;
   className?: string;
+  /** Animation direction */
+  direction?: "up" | "left";
 }
 
 /** Fades content up into view once it enters the viewport. */
-export default function Reveal({ children, delay = 0, className = "" }: RevealProps) {
+export default function Reveal({ children, delay = 0, className = "", direction = "up" }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -31,10 +33,12 @@ export default function Reveal({ children, delay = 0, className = "" }: RevealPr
     return () => observer.disconnect();
   }, []);
 
+  const revealClass = direction === "left" ? "reveal-left" : "reveal";
+
   return (
     <div
       ref={ref}
-      className={`reveal ${className}`}
+      className={`${revealClass} ${className}`}
       style={{ transitionDelay: delay ? `${delay}ms` : undefined }}
     >
       {children}

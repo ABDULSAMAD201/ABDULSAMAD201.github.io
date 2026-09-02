@@ -24,8 +24,8 @@ export default function Home() {
         <About />
         <Technologies />
         <Contact />
+        <Footer />
       </main>
-      <Footer />
     </>
   );
 }

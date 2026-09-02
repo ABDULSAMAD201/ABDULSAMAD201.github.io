@@ -42,13 +42,14 @@ export default function Testimonials() {
             eyebrow="Client Feedback"
             title="What Our Clients Say"
             description="We let our work and our clients speak for us."
+            align="left"
           />
         </Reveal>
 
         <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-14 sm:gap-5 md:grid-cols-3">
           {TESTIMONIALS.map((testimonial, i) => (
             <Reveal key={i} delay={i * 100} className="h-full">
-              <div className="flex h-full flex-col rounded-2xl border border-line bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 sm:p-7">
+              <div className="flex h-full flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 sm:p-7" style={{ background: 'linear-gradient(135deg, #1D2D47, #111C30)', border: '1px solid #2E4D73' }}>
                 <Quote className="mb-4 size-8 text-accent/30" aria-hidden="true" />
                 <p className="flex-1 text-sm leading-relaxed text-frost/85 sm:text-base">
                   &ldquo;{testimonial.quote}&rdquo;

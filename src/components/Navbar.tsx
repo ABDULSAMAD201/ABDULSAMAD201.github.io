@@ -15,39 +15,15 @@ const NAV_LINKS = [
 
 function Logo() {
   return (
-    <a href="#home" className="flex items-center gap-2.5 py-1">
-      <svg
-        width="34"
-        height="34"
-        viewBox="0 0 40 40"
-        fill="none"
-        aria-hidden="true"
+    <a href="#home" className="flex items-center gap-1.5 py-1.5">
+      <img
+        src="/logo.png"
+        alt="DataNova Labz logo"
+        width="56"
+        height="56"
         className="shrink-0"
-      >
-        <rect
-          x="1.5"
-          y="1.5"
-          width="37"
-          height="37"
-          rx="10"
-          stroke="#38bdf8"
-          strokeOpacity="0.45"
-          strokeWidth="1.5"
-        />
-        <path
-          d="M20 20 L29 13 M20 20 L29 27 M20 20 L11 27 M20 20 L11 13"
-          stroke="#38bdf8"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeOpacity="0.7"
-        />
-        <circle cx="29" cy="13" r="2.4" fill="#0ea5e9" />
-        <circle cx="29" cy="27" r="2.4" fill="#0ea5e9" />
-        <circle cx="11" cy="27" r="2.4" fill="#0ea5e9" />
-        <circle cx="11" cy="13" r="2.4" fill="#0ea5e9" />
-        <circle cx="20" cy="20" r="4" fill="#38bdf8" />
-      </svg>
-      <span className="font-display text-lg font-bold tracking-tight text-frost">
+      />
+      <span className="font-display text-xl font-bold tracking-tight text-frost">
         DataNova<span className="text-accent"> Labz</span>
       </span>
     </a>
@@ -106,16 +82,16 @@ export default function Navbar() {
           : "border-b border-transparent bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:h-16 sm:px-6 lg:px-8">
+      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-18 sm:px-6 lg:px-8">
         <Logo />
 
         {/* Desktop links */}
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden flex-nowrap items-center gap-0 md:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className={`rounded-lg px-3.5 py-2 text-sm font-medium transition-colors ${
+              className={`whitespace-nowrap rounded-lg px-2 py-2 text-xs font-medium transition-colors sm:text-sm ${
                 active === link.href.slice(1)
                   ? "text-accent"
                   : "text-muted hover:text-frost"

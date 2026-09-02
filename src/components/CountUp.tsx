@@ -6,6 +6,7 @@ interface CountUpProps {
   value: number;
   prefix?: string;
   suffix?: string;
+  suffixClassName?: string;
   duration?: number;
 }
 
@@ -22,6 +23,7 @@ export default function CountUp({
   value,
   prefix = "",
   suffix = "",
+  suffixClassName = "",
   duration = 1400,
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -58,7 +60,7 @@ export default function CountUp({
     <span ref={ref}>
       {prefix}
       {display}
-      {suffix}
+      {suffixClassName ? <span className={suffixClassName}>{suffix}</span> : suffix}
     </span>
   );
 }

@@ -1,15 +1,131 @@
+@import url('https://api.fontshare.com/v2/css?f[]=tanker@400,f[]=gambetta@400&display=swap');
 @import "tailwindcss";
 
+/* ── Sparkling border animation ─────────────────────────────────── */
+@property --sparkle-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes sparkle-orbit {
+  to {
+    --sparkle-angle: 360deg;
+  }
+}
+
+.sparkle-btn {
+  position: relative;
+}
+
+/* Sharp dot layer */
+.sparkle-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--sparkle-angle),
+    /* Dot 1 at 0% */
+    rgba(9, 179, 228, 1) 0%,
+    rgba(220, 245, 255, 1) 0.5%,
+    rgba(9, 179, 228, 1) 1%,
+    transparent 3%,
+    transparent 31%,
+    /* Dot 2 at 33.33% */
+    transparent 32%,
+    rgba(9, 179, 228, 1) 33.33%,
+    rgba(220, 245, 255, 1) 33.83%,
+    rgba(9, 179, 228, 1) 34.33%,
+    transparent 36.3%,
+    transparent 64.3%,
+    /* Dot 3 at 66.67% */
+    transparent 65.3%,
+    rgba(9, 179, 228, 1) 66.67%,
+    rgba(220, 245, 255, 1) 67.17%,
+    rgba(9, 179, 228, 1) 67.67%,
+    transparent 69.6%,
+    transparent 97%,
+    rgba(9, 179, 228, 1) 99%,
+    rgba(220, 245, 255, 1) 99.5%,
+    rgba(9, 179, 228, 1) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* Soft glow layer */
+.sparkle-btn::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  padding: 10px;
+  background: conic-gradient(
+    from var(--sparkle-angle),
+    rgba(9, 179, 228, 0.7) 0%,
+    rgba(120, 220, 255, 0.4) 1%,
+    transparent 4%,
+    transparent 30%,
+    rgba(9, 179, 228, 0.7) 33.33%,
+    rgba(120, 220, 255, 0.4) 34.33%,
+    transparent 37.3%,
+    transparent 63%,
+    rgba(9, 179, 228, 0.7) 66.67%,
+    rgba(120, 220, 255, 0.4) 67.67%,
+    transparent 70.6%,
+    transparent 96%,
+    rgba(9, 179, 228, 0.7) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.sparkle-btn:hover::before,
+.sparkle-btn:hover::after {
+  opacity: 1;
+  animation: sparkle-orbit 2.8s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sparkle-btn::before,
+  .sparkle-btn::after {
+    animation: none !important;
+  }
+}
+
 @theme {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-display: var(--font-space-grotesk), var(--font-inter), ui-sans-serif, sans-serif;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-jetbrains), var(--font-inter), ui-sans-serif, sans-serif;
+  --font-tanker: var(--font-jetbrains), var(--font-inter), ui-sans-serif, sans-serif;
+  --font-gambetta: var(--font-manrope), ui-sans-serif, sans-serif;
 
   --color-night: #060a13;
   --color-surface: #0a1120;
   --color-card: #0d1626;
   --color-line: #1c2942;
   --color-frost: #e8eef7;
-  --color-muted: #98a6bd;
+  --color-muted: #D1D5DB;
   --color-faint: #7c8aa3;
   --color-accent: #38bdf8;
   --color-accent-strong: #0ea5e9;
@@ -25,7 +141,10 @@ html {
 }
 
 body {
-  background-color: var(--color-night);
+  background: 
+    radial-gradient(ellipse at 70% 50%, #2F174F 0%, transparent 50%),
+    radial-gradient(ellipse at 30% 80%, #1a0a30 0%, transparent 40%),
+    linear-gradient(135deg, #020719 0%, #0D1A49 100%);
   color: var(--color-frost);
   font-family: var(--font-sans);
   overflow-x: hidden;
@@ -53,13 +172,7 @@ section[id] {
   color: #ffffff;
 }
 
-/* Ambient technical grid backdrop */
-.grid-bg {
-  background-image:
-    linear-gradient(rgba(148, 163, 184, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
-  background-size: 48px 48px;
-}
+
 
 .glow-hero {
   background: radial-gradient(
@@ -91,6 +204,38 @@ section[id] {
 .reveal.is-visible {
   opacity: 1;
   transform: none;
+}
+
+/* Scroll-reveal from left */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-left.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Tech marquee */
+.tech-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 2.5rem;
+  animation: marquee-scroll 35s linear infinite;
+}
+.tech-marquee-track:hover {
+  animation-play-state: paused;
+}
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.tech-marquee-wrapper {
+  mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
 }
 
 /* Flowing data dots along pipeline connectors */
@@ -183,6 +328,71 @@ section[id] {
   margin: 0 auto 0.5rem;
 }
 
+/* ── KPI dashboard visualizations ────────────────────────────── */
+
+/* Bars grow upward from bottom */
+.metric-bar {
+  animation: bar-grow 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+@keyframes bar-grow {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* Trend line draws in */
+.metric-trend {
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Panel fade in */
+.metric-panel {
+  animation: panel-in 0.6s ease both;
+}
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Dot fade in */
+.metric-dot {
+  transition: opacity 0.5s ease;
+}
+
+/* Ring draw */
+.metric-ring {
+  transition: stroke-dashoffset 1.8s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.6s ease;
+}
+
+/* ── Process timeline — straight line ────────────────────────── */
+
+/* Traveling dot along the straight line */
+.travel-dot-straight {
+  left: 8%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: none;
+}
+.process-timeline.in-view .travel-dot-straight,
+.process-timeline:hover .travel-dot-straight {
+  opacity: 1;
+  animation: travel-straight 5s linear infinite;
+}
+@keyframes travel-straight {
+  0%   { left: 8%; }
+  100% { left: 92%; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -201,5 +411,31 @@ section[id] {
   }
   .mobile-menu-enter {
     animation: none;
+  }
+  .travel-dot-straight {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+  .metric-bar,
+  .metric-trend,
+  .metric-panel,
+  .metric-dot,
+  .metric-ring {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ── Panel expand animation ── */
+@keyframes panelExpand {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
   }
 }

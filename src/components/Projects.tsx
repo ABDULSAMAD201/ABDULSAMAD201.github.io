@@ -18,15 +18,16 @@ export default function Projects() {
         <Reveal>
           <SectionHeading
             eyebrow="Our Work"
-            title="Projects"
+            title={<><span style={{ color: '#D4C5A9' }}>Projects</span></>}
             description="See how we've helped businesses solve data challenges, automate workflows, and build intelligent systems."
+            align="left"
           />
         </Reveal>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-14 sm:gap-5 md:grid-cols-2">
+        <div className="mt-10 grid grid-cols-1 items-stretch gap-4 sm:mt-14 sm:gap-5 md:grid-cols-2">
           {projects.map((project, i) => (
             <Reveal key={project.id} delay={(i % 2) * 90} className="h-full">
-              <ProjectCard project={project} onOpen={setSelected} />
+              <ProjectCard project={project} index={i} onOpen={setSelected} />
             </Reveal>
           ))}
         </div>
@@ -37,6 +38,7 @@ export default function Projects() {
       {selected && (
         <ProjectModal project={selected} onClose={() => setSelected(null)} />
       )}
+
     </section>
   );
 }

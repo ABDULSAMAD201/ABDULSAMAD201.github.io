@@ -4,7 +4,6 @@ import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
 interface Service {
-  icon: LucideIcon;
   title: string;
   description: string;
   outcomes: string[];
@@ -12,7 +11,6 @@ interface Service {
 
 const SERVICES: Service[] = [
   {
-    icon: Database,
     title: "Data Engineering & ETL",
     description:
       "We connect, clean, and automate your data so your business can make decisions using reliable information.",
@@ -24,7 +22,6 @@ const SERVICES: Service[] = [
     ],
   },
   {
-    icon: BarChart3,
     title: "Power BI & Business Intelligence",
     description:
       "Turn scattered spreadsheets and business data into interactive dashboards and real-time insights.",
@@ -36,7 +33,6 @@ const SERVICES: Service[] = [
     ],
   },
   {
-    icon: Server,
     title: "Backend & API Development",
     description:
       "Build scalable backend systems, APIs, and integrations that connect your tools and support your business growth.",
@@ -48,7 +44,6 @@ const SERVICES: Service[] = [
     ],
   },
   {
-    icon: Bot,
     title: "AI Agents & Automation",
     description:
       "Automate repetitive workflows and build AI-powered systems that save time and reduce manual work.",
@@ -64,44 +59,85 @@ const SERVICES: Service[] = [
 export default function Services() {
   return (
     <section id="services" className="relative">
-      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 md:py-28 lg:px-8">
+      <div className="mx-auto max-w-[1240px] px-5 py-20 sm:px-6 sm:py-24 md:py-28 lg:px-8">
         <Reveal>
           <SectionHeading
             eyebrow="What We Do"
-            title="Solutions That Drive Business Results"
-            description="We don't just build technology — we solve business problems. Here's how our services create real value for your company."
+            title={<>Technology That Works for <span style={{ color: '#facc15' }}>You</span></>}
+            description="We build practical solutions that simplify your work and help your business run better."
+            align="left"
           />
         </Reveal>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-14 sm:gap-5 md:grid-cols-2">
+        <div className="mt-10 grid gap-4 sm:gap-6 sm:mt-14 grid-cols-1 sm:grid-cols-2">
           {SERVICES.map((service, i) => (
             <Reveal key={service.title} delay={i * 90} className="h-full">
-              <div className="group flex h-full flex-col rounded-2xl border border-line bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-[0_16px_40px_-16px_rgba(56,189,248,0.2)] sm:p-8">
-                <div className="flex items-start gap-4">
-                  <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-accent/10 text-accent transition-colors group-hover:bg-accent/15">
-                    <service.icon className="size-6" aria-hidden="true" />
-                  </span>
-                  <div>
-                    <h3 className="font-display text-xl font-bold tracking-tight text-frost">
-                      {service.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">
-                      {service.description}
-                    </p>
-                  </div>
+              <div
+                className="group relative flex h-full flex-col overflow-hidden rounded-xl px-4 py-4 transition-all duration-300 hover:-translate-y-0.5 sm:px-6 sm:py-6"
+                style={{
+                  background: "linear-gradient(135deg, #18263D 0%, #0D1A49 55%, #2F174F 100%)",
+                  border: "1px solid rgba(36, 184, 255, 0.2)",
+                }}
+              >
+                <div className="relative z-10">
+                  <h3
+                    style={{
+                      fontSize: "clamp(17px, 2vw, 20px)",
+                      fontWeight: 700,
+                      lineHeight: 1.3,
+                      color: "#E8EEF8",
+                    }}
+                  >
+                    {service.title}
+                  </h3>
+                  <p
+                    style={{
+                      marginTop: 8,
+                      fontSize: "clamp(14px, 1.5vw, 15px)",
+                      lineHeight: 1.55,
+                      color: "#B8C3D6",
+                    }}
+                  >
+                    {service.description}
+                  </p>
                 </div>
 
-                <div className="mt-6 border-t border-line/60 pt-5 sm:mt-7 sm:pt-6">
-                  <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-faint">
+                <div className="relative z-10" style={{ marginTop: 20 }}>
+                  <p
+                    style={{
+                      marginBottom: 10,
+                      fontSize: 13,
+                      fontWeight: 600,
+                      letterSpacing: "0.05em",
+                      textTransform: "uppercase",
+                      color: "#24B8FF",
+                    }}
+                  >
                     Business Outcomes
                   </p>
-                  <ul className="space-y-2.5">
+                  <ul style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                     {service.outcomes.map((outcome) => (
                       <li
                         key={outcome}
-                        className="flex items-start gap-2.5 text-sm leading-relaxed text-frost/85"
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: 10,
+                          fontSize: 14,
+                          lineHeight: 1.5,
+                          color: "#D1D9E8",
+                        }}
                       >
-                        <span className="mt-2 size-1.5 shrink-0 rounded-full bg-accent" />
+                        <span
+                          style={{
+                            marginTop: 6,
+                            width: 6,
+                            height: 6,
+                            borderRadius: "50%",
+                            backgroundColor: "#FF8A2A",
+                            flexShrink: 0,
+                          }}
+                        />
                         {outcome}
                       </li>
                     ))}

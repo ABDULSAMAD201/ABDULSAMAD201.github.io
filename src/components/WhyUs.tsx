@@ -32,22 +32,26 @@ const POINTS: Point[] = [
 
 export default function WhyUs() {
   return (
-    <section className="relative border-y border-line/60 bg-surface/40">
+    <section className="relative bg-surface/40">
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 md:py-28 lg:px-8">
         <Reveal>
           <SectionHeading
             eyebrow="Why DataNova Labz"
             title="Built for End-to-End Technical Solutions"
             description="We work across the full technical journey — from raw data and requirements to reliable systems and automation."
+            align="left"
           />
         </Reveal>
 
         <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-14 sm:gap-5 md:grid-cols-3">
           {POINTS.map((point, i) => (
             <Reveal key={point.title} delay={i * 90} className="h-full">
-              <div className="group flex h-full flex-col rounded-2xl border border-line bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 sm:p-7">
-                <span className="grid size-10 place-items-center rounded-xl bg-accent/10 text-accent transition-colors group-hover:bg-accent/15 sm:size-11">
-                  <point.icon className="size-5" aria-hidden="true" />
+              <div className="group flex h-full flex-col rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 sm:p-7" style={{ background: 'linear-gradient(135deg, #1D2D47, #111C30)', border: '1px solid #2E4D73' }}>
+                <span className="relative grid size-10 place-items-center rounded-full text-accent transition-colors group-hover:bg-accent/15 sm:size-11">
+                  <span className="absolute inset-0 rounded-full border-2" style={{ borderColor: 'rgba(9, 179, 228, 0.15)' }} />
+                  <span className="absolute inset-1 rounded-full border-2" style={{ borderColor: 'rgba(249, 115, 22, 0.5)' }} />
+                  <span className="absolute inset-2 rounded-full" style={{ backgroundColor: 'rgba(9, 179, 228, 0.15)' }} />
+                  <point.icon className="relative size-5" aria-hidden="true" />
                 </span>
                 <h3 className="mt-4 font-display text-lg font-bold tracking-tight text-frost sm:mt-5">
                   {point.title}

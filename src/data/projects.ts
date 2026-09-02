@@ -115,22 +115,7 @@ export const projects: Project[] = [
       "Data was coming from multiple operational sources, including APIs, PostgreSQL databases, and CSV files. The existing approach depended on manual exports and ad hoc scripts, causing delays of up to 24 hours and providing limited visibility into rejected or problematic records.",
     solution: [
       {
-        text: "We built an automated ETL pipeline that:",
-        items: [
-          "Extracts customer data from a REST API",
-          "Extracts order data from PostgreSQL",
-          "Processes product data from CSV files",
-          "Cleans and transforms records using defined business rules",
-          "Handles invalid and rejected records without stopping the entire pipeline",
-          "Deduplicates data",
-          "Loads clean data into a PostgreSQL data warehouse",
-          "Uses upsert logic to prevent duplicate records",
-          "Runs automatically on a configurable daily schedule",
-          "Supports incremental data extraction",
-          "Creates structured logs for every pipeline run",
-          "Generates error reports for rejected records",
-          "Includes automated unit tests",
-        ],
+        text: "We built an automated data pipeline that collects customer, order, and product data from different sources, cleans and transforms it using business rules, removes duplicate and invalid records, and loads the clean data into a PostgreSQL data warehouse. The pipeline handles errors without stopping the entire process, updates existing data to prevent duplicates, supports daily scheduling and incremental updates, and provides detailed logs and error reports for every run. Automated tests are also included to ensure the pipeline works reliably.",
       },
     ],
     outcome: [

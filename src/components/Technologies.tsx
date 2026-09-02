@@ -26,8 +26,8 @@ interface Tech {
 const TECHNOLOGIES: Tech[] = [
   { name: "Python", icon: PythonIcon, color: '#3776AB' },
   { name: "FastAPI", icon: FastAPIIcon, color: '#009688' },
-  { name: "PostgreSQL", icon: PostgreSQLIcon, color: '#4169E1' },
-  { name: "SQL", icon: SQLIcon, color: '#e38c00' },
+  { name: "PostgreSQL", icon: PostgreSQLIcon, color: '#336791' },
+  { name: "SQL", icon: SQLIcon, color: '#1E88E5' },
   { name: "Power BI", icon: PowerBIIcon, color: '#f2c811' },
   { name: "Docker", icon: DockerIcon, color: '#2496ED' },
   { name: "LangChain", icon: LangChainIcon, color: '#1c3c3c' },
@@ -76,6 +76,9 @@ export default function Technologies() {
             ))}
             {TECHNOLOGIES.map((tech, i) => (
               <TechItem key={`td-${i}`} tech={tech} />
+            ))}
+            {TECHNOLOGIES.map((tech, i) => (
+              <TechItem key={`t3-${i}`} tech={tech} />
             ))}
           </div>
         </div>

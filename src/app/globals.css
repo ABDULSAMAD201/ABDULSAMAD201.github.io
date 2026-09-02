@@ -231,7 +231,7 @@ section[id] {
 }
 @keyframes marquee-scroll {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(-33.333%); }
 }
 .tech-marquee-wrapper {
   mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);

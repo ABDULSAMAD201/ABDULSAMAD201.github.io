@@ -9,7 +9,6 @@ const NAV_LINKS = [
   { label: "Services", href: "#services" },
   { label: "Projects", href: "#projects" },
   { label: "Process", href: "#process" },
-  { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -78,20 +77,21 @@ export default function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled || open
-          ? "border-b border-line/70 bg-night/85 backdrop-blur-md"
+          ? "border-b border-line/70 backdrop-blur-md"
           : "border-b border-transparent bg-transparent"
       }`}
+      style={scrolled || open ? { background: "linear-gradient(135deg, rgba(24,38,61,0.9) 0%, rgba(13,26,73,0.9) 55%, rgba(47,23,79,0.9) 100%)" } : undefined}
     >
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-18 sm:px-6 lg:px-8">
+      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:h-18 sm:px-8 lg:px-10">
         <Logo />
 
         {/* Desktop links */}
-        <div className="hidden flex-nowrap items-center gap-0 md:flex">
+        <div className="hidden flex-nowrap items-center gap-1 sm:gap-2 md:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className={`whitespace-nowrap rounded-lg px-2 py-2 text-xs font-medium transition-colors sm:text-sm ${
+              className={`whitespace-nowrap rounded-lg px-3 py-2 text-xs font-medium transition-colors sm:text-sm sm:px-4 ${
                 active === link.href.slice(1)
                   ? "text-accent"
                   : "text-muted hover:text-frost"
@@ -122,7 +122,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`overflow-hidden border-t border-line/70 bg-night/95 backdrop-blur-md md:hidden ${
+        className={`overflow-hidden border-t border-line/70 backdrop-blur-md md:hidden ${
           open ? "mobile-menu-enter" : ""
         }`}
         aria-hidden={!open}

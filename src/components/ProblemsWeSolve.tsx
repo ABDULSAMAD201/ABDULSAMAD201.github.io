@@ -16,7 +16,7 @@ export default function ProblemsWeSolve() {
       <div className="mx-auto max-w-7xl px-4 pt-12 pb-16 sm:px-6 sm:pt-16 sm:pb-20 md:pt-20 md:pb-24 lg:px-8">
         <Reveal>
           <SectionHeading
-            eyebrow="Sound Familiar?"
+            eyebrow="Challenges"
             title={
               <>
                 The Problems We{" "}

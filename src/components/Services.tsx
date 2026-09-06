@@ -73,11 +73,15 @@ export default function Services() {
           {SERVICES.map((service, i) => (
             <Reveal key={service.title} delay={i * 90} className="h-full">
               <div
-                className="group relative flex h-full flex-col overflow-hidden rounded-xl px-4 py-4 transition-all duration-300 hover:-translate-y-0.5 sm:px-6 sm:py-6"
+                className="group relative h-full overflow-hidden rounded-2xl p-[1.5px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_30px_rgba(56,189,248,0.15)]"
                 style={{
-                  background: "linear-gradient(135deg, #18263D 0%, #0D1A49 55%, #2F174F 100%)",
-                  border: "1px solid rgba(36, 184, 255, 0.2)",
+                  background: "linear-gradient(135deg, #24B8FF 0%, #7C3AED 50%, #FF8A2A 100%)",
+                  boxShadow: "0 0 20px rgba(36,184,255,0.12), 0 0 40px rgba(124,58,237,0.06)",
                 }}
+              >
+              <div
+                className="flex h-full flex-col overflow-hidden rounded-[14px] px-4 py-4 sm:px-6 sm:py-6"
+                style={{ background: "linear-gradient(135deg, #18263D 0%, #0D1A49 55%, #2F174F 100%)" }}
               >
                 <div className="relative z-10">
                   <h3
@@ -143,6 +147,7 @@ export default function Services() {
                     ))}
                   </ul>
                 </div>
+              </div>
               </div>
             </Reveal>
           ))}

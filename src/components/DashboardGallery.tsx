@@ -11,7 +11,7 @@ import Reveal from "./Reveal";
 /* ------------------------------------------------------------------ */
 
 const sectionLabel =
-  "text-xs font-semibold uppercase tracking-[0.18em] text-[#38bdf8]";
+  "text-xs font-semibold uppercase tracking-[0.18em]";
 
 function DashboardModal({
   item,
@@ -67,7 +67,7 @@ function DashboardModal({
         }}
       >
         {/* Inner container with dark background */}
-        <div className="flex flex-col overflow-hidden rounded-t-[14px] bg-[#0a1128] sm:rounded-[14px]">
+        <div className="flex flex-col overflow-hidden rounded-t-[14px] sm:rounded-[14px]" style={{ background: "linear-gradient(135deg, #121D33 0%, #0A1338 55%, #241140 100%)" }}>
         {/* Header */}
         <div className="flex items-center justify-between gap-4 border-b border-[#1a2a4a] px-5 py-4 sm:px-8">
           <div className="min-w-0">
@@ -101,14 +101,14 @@ function DashboardModal({
             {/* Left: info */}
             <div className="flex flex-col gap-5 lg:col-span-2">
               <div>
-                <h4 className={sectionLabel}>Overview</h4>
+                <h4 className={sectionLabel} style={{ color: '#f97316' }}>Overview</h4>
                 <p className="mt-2 text-sm leading-relaxed text-[#cbd5e1]">
                   {item.overview}
                 </p>
               </div>
 
               <div>
-                <h4 className={sectionLabel}>What It Helps With</h4>
+                <h4 className={sectionLabel} style={{ color: '#34d399' }}>What It Helps With</h4>
                 <ul className="mt-2 space-y-2">
                   {item.capabilities.slice(0, 3).map((cap) => (
                     <li
@@ -116,7 +116,7 @@ function DashboardModal({
                       className="flex items-start gap-2 text-sm leading-relaxed text-[#cbd5e1]"
                     >
                       <CheckCircle2
-                        className="mt-0.5 size-4 shrink-0 text-[#38bdf8]"
+                        className="mt-0.5 size-4 shrink-0 text-[#34d399]"
                         aria-hidden="true"
                       />
                       {cap}
@@ -126,7 +126,7 @@ function DashboardModal({
               </div>
 
               <div>
-                <h4 className={sectionLabel}>Technology</h4>
+                <h4 className={sectionLabel} style={{ color: '#38bdf8' }}>Technology</h4>
                 <div className="mt-2.5 flex flex-wrap gap-1.5">
                   {item.tech.map((t) => (
                     <span
@@ -142,7 +142,7 @@ function DashboardModal({
 
             {/* Right: screenshot */}
             <div className="flex flex-col gap-3 lg:col-span-3">
-              <h4 className={sectionLabel}>
+              <h4 className={sectionLabel} style={{ color: '#facc15' }}>
                 <Eye className="mr-1.5 inline size-3.5" aria-hidden="true" />
                 Dashboard Screenshot
               </h4>

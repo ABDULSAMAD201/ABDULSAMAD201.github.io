@@ -40,15 +40,15 @@ export const projects: Project[] = [
     title: "Aviation Weather Data Pipeline",
     category: "Data Engineering / Aviation",
     overview:
-      "An automated ETL pipeline designed to process aviation and weather data and provide flight-specific weather information for aviation users.",
+      "An automated ETL pipeline that processes aviation and weather data to provide flight-specific weather information for aviation users.",
     problem:
-      "Aviation users need timely weather information to understand conditions relevant to a specific flight. Processing and preparing weather data manually was inefficient, while information needed to be refreshed frequently across a large number of airports.",
+      "Aviation users need timely weather information for specific flights. Manual processing was inefficient and made it difficult to keep weather data updated across many airports.",
     solution: [
       {
-        text: "We built an automated Python-based ETL pipeline that gathers data from aviation weather data providers and weather APIs, transforms the data, and prepares relevant weather information for specific flights.",
+        text: "We built an automated Python-based ETL pipeline that collects data from aviation weather providers and weather APIs, transforms it, and prepares relevant weather information for specific flights.",
       },
       {
-        text: "When a flight is selected, the system can provide weather information from the departure side through the flight route to the landing destination.",
+        text: "When a flight is selected, the system provides weather information from departure, along the flight route, to the destination.",
       },
       {
         heading: "Weather information includes",
@@ -56,16 +56,16 @@ export const projects: Project[] = [
           "Clear and cloudy conditions",
           "Temperature",
           "Visibility",
-          "Weather conditions along the flight route",
-          "Departure-to-destination weather coverage",
+          "Weather conditions along the route",
+          "Departure-to-destination coverage",
         ],
       },
     ],
     outcome: [
-      "Replaced manual weather data processing with an automated ETL pipeline.",
-      "Supports weather data coverage across approximately 8,000 airports.",
+      "Replaced manual weather processing with an automated ETL pipeline.",
+      "Supports weather data for approximately 8,000 airports.",
       "Automatically refreshes data every 2–3 minutes.",
-      "Currently in use by pilots for viewing weather conditions along flight routes.",
+      "Currently used by pilots to monitor weather conditions along flight routes.",
     ],
     tech: ["Python"],
     flow: [
@@ -137,34 +137,27 @@ export const projects: Project[] = [
     title: "AI-Powered SQL Assistant",
     category: "AI / Backend / Developer Tools",
     overview:
-      "An AI-powered SQL assistant designed to help users generate, improve, and troubleshoot SQL queries.",
+      "An AI-powered SQL assistant for generating, optimizing, and troubleshooting SQL queries.",
     problem:
-      "Writing SQL can be time-consuming, especially when users need help translating requirements into queries, identifying errors, improving existing queries, or making searches more specific.",
+      "Writing and fixing SQL manually can be time-consuming, especially when converting requirements into queries or improving existing ones.",
     solution: [
       {
-        text: "We built an AI-powered SQL assistant with a FastAPI backend. Users can describe what they want in natural language or provide an existing SQL query.",
+        text: "We built a FastAPI-based SQL assistant using a local Ollama model. Users can provide a requirement in natural language or an existing SQL query.",
       },
       {
         heading: "The assistant can",
         items: [
-          "Generate SQL based on natural-language requirements",
-          "Help users create more specific queries",
-          "Detect issues or errors in existing queries",
-          "Optimize and improve existing SQL queries",
-          "Assist with query refinement",
+          "Generate SQL from natural-language requirements",
+          "Detect and fix query issues",
+          "Optimize existing SQL queries",
+          "Refine queries based on specific requirements",
         ],
-      },
-      {
-        text: "For example, a user can describe a requirement such as retrieving information from an employee table based on salary conditions, and the system helps generate the appropriate SQL query.",
-      },
-      {
-        text: "The project runs a local Ollama model rather than relying on a specific hosted model provider.",
       },
     ],
     outcome: [
-      "A practical AI-powered tool that makes SQL query creation and optimization easier for users and developers.",
-      "Demonstrated through the FastAPI Swagger/API interface — does not currently have a dedicated frontend UI.",
-      "Operates as a query generation and optimization assistant without requiring access to a specific production database.",
+      "Simplifies SQL generation, troubleshooting, and optimization.",
+      "Exposed through FastAPI Swagger/API without a dedicated frontend.",
+      "Works independently of a production database.",
     ],
     tech: ["Python", "FastAPI", "LangChain", "Ollama", "PostgreSQL", "SQL"],
     flow: [

@@ -6,6 +6,7 @@ const FOOTER_LINKS = [
   { label: "Services", href: "#services" },
   { label: "Projects", href: "#projects" },
   { label: "Process", href: "#process" },
+  { label: "Reviews", href: "#reviews" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -29,7 +30,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <nav aria-label="Footer">
-            <ul className="flex flex-nowrap items-center justify-center gap-x-4 sm:gap-x-6">
+            <ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 sm:gap-x-6">
               {FOOTER_LINKS.map((link) => (
                 <li key={link.href}>
                   <a
@@ -46,7 +47,7 @@ export default function Footer() {
           {/* Contact */}
           <div className="flex items-center justify-center gap-3 sm:gap-4">
             <a
-              href={`mailto:${EMAIL}`}
+              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}`}
               aria-label="Email DataNova Labz"
               className="grid size-11 place-items-center rounded-lg border border-line text-muted transition hover:border-accent/50 hover:text-accent"
             >

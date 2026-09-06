@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { label: "Services", href: "#services" },
   { label: "Projects", href: "#projects" },
   { label: "Process", href: "#process" },
+  { label: "Reviews", href: "#reviews" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -60,13 +61,18 @@ export default function Navbar() {
       document.getElementById(l.href.slice(1))
     ).filter((el): el is HTMLElement => el !== null);
 
+    let currentActive = "home";
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(entry.target.id);
+          if (entry.isIntersecting) {
+            currentActive = entry.target.id;
+            setActive(entry.target.id);
+          }
         });
       },
-      { rootMargin: "-40% 0px -55% 0px" }
+      { threshold: 0.15 }
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -127,7 +133,7 @@ export default function Navbar() {
         }`}
         aria-hidden={!open}
         style={{
-          maxHeight: open ? "400px" : "0px",
+          maxHeight: open ? "520px" : "0px",
           transition: "max-height 0.3s cubic-bezier(0.22, 1, 0.36, 1)",
         }}
       >

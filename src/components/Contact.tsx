@@ -88,7 +88,7 @@ export default function Contact() {
 
               <div className="mt-8 space-y-3 sm:mt-9">
                 <a
-                  href={`mailto:${EMAIL}`}
+                  href={`https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}`}
                   className="group relative flex items-center gap-3 overflow-hidden rounded-xl p-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 sm:gap-4 sm:p-4"
                   style={{ background: 'linear-gradient(135deg, #18263D 0%, #0D1A49 55%, #2F174F 100%)', border: '1px solid rgba(36, 184, 255, 0.2)' }}
                 >
